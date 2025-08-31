@@ -39,15 +39,19 @@ app.post('/multiple', upload.array('documents', 20), async (req, res, next) => {
 app.get('/demo.html', (_, res) => {
   const markup = `<body><form action="/single" method="post" enctype="multipart/form-data">
   <div><label for="single_document">Single Document</label></div>
-  <input type="file" name="document" id="single_document" />
-  <input type="number" name="simulateDelay" />
+  <div><input type="file" name="document" id="single_document" /></div>
+
+  <div><label for="simulate_delay">Simulate delay</label></div>
+  <div><input type="number" name="simulateDelay" id="simulate_delay" /></div>
   <div><input type="submit" /></div>
 </form>
 
 <form action="/multiple" method="post" enctype="multipart/form-data">
   <div><label for="multiple_documents">Multiple Documents</label></div>
-  <input type="file" name="documents" id="multiple_documents" multiple />
-  <input type="number" name="simulateDelay" />
+  <div><input type="file" name="documents" id="multiple_documents" multiple /></div>
+
+  <div><label for="simulate_delay">Simulate delay</label></div>
+  <div><input type="number" name="simulateDelay" id="simulate_delay" /></div>
   <div><input type="submit" /></div>
 </form></body>`;
   res.end(markup);
