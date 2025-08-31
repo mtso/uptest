@@ -1,9 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const multer = require('multer');
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 const app = express();
+
+app.use(cors());
 
 const delay = async (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
 
